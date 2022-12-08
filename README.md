@@ -3,7 +3,15 @@ advent of code catalog, started 2022. Written in Python
 
 # Happy Holidays and Welcome
 
-This is my first year doing the Advent of Code, and I ran into a few stumbling blocks that 
+This is my first year doing the Advent of Code, and have already taken on many challenges.
+## Things I have Learned(so far)
+---
+  - Linux command line
+    - curl
+      - how to get your [cookie session](https://github.com/wimglenn/advent-of-code-wim/issues/1)
+      - how to [curl your daily input](https://www.reddit.com/r/adventofcode/comments/a2vonl/how_to_download_inputs_with_a_script/) **DO NOT RUN THIS IN A LOOP**
+    - git
+      - I used [this link](https://kbroman.org/github_tutorial/pages/init.html) to setup my repo. after running into a few issues, I finally used `git clone` to bring my repo down and copied my prebuilt file structure into the directory
 
 ##Solution Code
 ---
