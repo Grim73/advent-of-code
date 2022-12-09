@@ -1,5 +1,6 @@
 f = open("input.txt", "r")
 lines = f.readlines()
+## one line function adding each occurence of `lines` to the list `calories`
 calories = [entry.strip() for entry in lines]
 
 ## Creates an empty list for your calories to be input
@@ -27,7 +28,9 @@ count = 0
 
 
 while count <=2:
+    ## 
     top_total.append(max(elf_sums))
+
     elf_sums.remove(max(elf_sums))
     count += 1
 
