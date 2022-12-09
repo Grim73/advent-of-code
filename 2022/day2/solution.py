@@ -2,38 +2,65 @@ f = open("input.txt", "r")
 lines = f.readlines()
 ## one line function adding each occurence of `lines` to the list `calories`
 games = [entry.strip() for entry in lines]
-print(games)
 
 p1rock = "A"
 p1paper = "B"
 p1scissors = "C"
 
-p2rock = "Y"
-p2paper = "X"
+p2rock = "X"
+p2paper = "Y"
 p2scissors = "Z"
 
-#pwin = ["A" , "X" ]
-#swin = ["B" , "Z"]
-#rwin = ["C" , "Y"]
-#pcount = 0
-#scount = 0
-#rcount = 0
-#loses = 0
-
-#for entry in games:
-#    if pwin == entry:
-#        pcount += 1
-#    elif swin == entry:
-#        scount +=1
-#    elif rwin == entry:
-#        rcount +=1
-#    else:
-#        loses += 1
-#
-#
-#print(pcount)
-#print(scount)
-#print(rcount)
-#print(loses)
+## Win states
+rwin = "C X"
+swin = "B Z"
+pwin = "A Y"
+pwcount = 0
+swcount = 0
+rwcount = 0
 
 
+## Lose states
+rloss = "B X"
+sloss = "A Z"
+ploss = "C Y"
+plcount = 0
+slcount = 0
+rlcount = 0
+
+draw = 0
+
+
+for entry in games:
+    if pwin == entry:
+        pwcount += 2 + 6
+    elif swin == entry:
+        swcount += 3 + 6
+    elif rwin == entry:
+        rwcount += 1 + 6
+
+    elif ploss == entry:
+        plcount += 2
+
+    elif sloss == entry:
+        slcount += 3
+
+    elif rloss == entry:
+        rlcount +=1
+
+    else:
+        draw += 3
+
+
+wins = pwcount + swcount + rwcount
+
+losses = plcount + slcount + rlcount
+
+print(pwcount)
+print(swcount)
+print(rwcount)
+print(plcount)
+print(slcount)
+print(rlcount)
+print(draw)
+print(wins + losses + draw)
