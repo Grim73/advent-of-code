@@ -29,31 +29,47 @@ slcount = 0
 rlcount = 0
 
 draw = 0
-
+draw_list = []
+print(len(games))
 
 for entry in games:
     if pwin == entry:
         pwcount += 2 + 6
+##        games.remove()
     elif swin == entry:
         swcount += 3 + 6
+##        games.remove()
     elif rwin == entry:
         rwcount += 1 + 6
+##        games.remove()
 
     elif ploss == entry:
         plcount += 2
+##        games.remove()
 
     elif sloss == entry:
         slcount += 3
+##        games.remove()
 
     elif rloss == entry:
         rlcount +=1
+##        games.remove()
 
     else:
         draw += 3
+        draw_list.append(entry)
 
+for strip in draw_list:
+    ending = strip[-1]
+    if ending == p2paper:
+        draw += 2
+    elif ending == p2scissors:
+        draw += 3
+    elif ending == p2rock:
+        draw += 1
 
+print(len(games))
 wins = pwcount + swcount + rwcount
-
 losses = plcount + slcount + rlcount
 
 print(pwcount)
