@@ -35,25 +35,21 @@ print(len(games))
 for entry in games:
     if pwin == entry:
         pwcount += 2 + 6
-##        games.remove()
+
     elif swin == entry:
         swcount += 3 + 6
-##        games.remove()
+
     elif rwin == entry:
         rwcount += 1 + 6
-##        games.remove()
 
     elif ploss == entry:
         plcount += 2
-##        games.remove()
 
     elif sloss == entry:
         slcount += 3
-##        games.remove()
 
     elif rloss == entry:
         rlcount +=1
-##        games.remove()
 
     else:
         draw += 3
