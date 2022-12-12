@@ -14,23 +14,46 @@ draw = []
 score = []
 
 
-def set_state(state_list, dest_list, points):
-    score = 0
+def set_state(state1, state2, dest1, dest2, dest3, dest4):
+
     for entry in games:
 
-        if entry == state_list[0]:
-            dest_list[0].append(entry)
-            score += points
+        if entry == state1[0]:
+            dest1[0].append(entry)
 
-        elif entry == state_list[1]:
-            dest_list[1].append(entry)
-            score += points
+
+        elif entry == state1[1]:
+            dest2[0].append(entry)
+
+        elif entry == state1[2]:
+            dest3[0].append(entry)
+
+        if entry == state2[0]:
+            dest1[1].append(entry)
+
+        elif entry == state2[1]:
+            dest2[1].append(entry)
+
+        elif entry == state2[2]:
+            dest3[1].append(entry)
+        else:
+            dest4.append(entry)
+
+    for strip in dest4:
+        ending = strip[-1]
+
+        if ending == "X":
+            dest1[2].append(ending)
+
+        elif ending == "Y":
+            dest2[2].append(ending)
 
         else:
-            dest_list[2].append(entry)
-            score += points
+            dest3[2].append(ending)
 
-set_state(win, rock, 3)
+
+set_state(win, loss, rock, paper, scissors, draw)
+
 ##for entry in games:
 ##
 ##    if entry == win[0]:
@@ -72,7 +95,7 @@ set_state(win, rock, 3)
 ## def scoring(throw, points):
 
 ##["B X", "C Y",  "A Z"]
-print(len(rock[0]))
+print(len(rock[2]))
 print(len(paper[0]))
 print(len(scissors))
 print(score)
