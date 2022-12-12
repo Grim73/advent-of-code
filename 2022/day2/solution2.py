@@ -11,16 +11,17 @@ paper = [[],[],[]]
 scissors = [[],[],[]]
 draw = []
 
-score = []
+score_bank = [[], [], []]
+score = 0
 
 
-def set_state(state1, state2, dest1, dest2, dest3, dest4):
+
+def set_state(state1, state2, state3, dest1, dest2, dest3):
 
     for entry in games:
 
         if entry == state1[0]:
             dest1[0].append(entry)
-
 
         elif entry == state1[1]:
             dest2[0].append(entry)
@@ -37,9 +38,9 @@ def set_state(state1, state2, dest1, dest2, dest3, dest4):
         elif entry == state2[2]:
             dest3[1].append(entry)
         else:
-            dest4.append(entry)
+            state3.append(entry)
 
-    for strip in dest4:
+    for strip in state3:
         ending = strip[-1]
 
         if ending == "X":
@@ -52,7 +53,30 @@ def set_state(state1, state2, dest1, dest2, dest3, dest4):
             dest3[2].append(ending)
 
 
-set_state(win, loss, rock, paper, scissors, draw)
+
+def points(shape, total, bank):
+    for entry in shape[0]:
+        total += 6
+
+    bank.append(total)
+
+    total = 0
+
+    for entry in shape[2]:
+        total += 3
+
+    bank.append(total)
+
+    total = 0
+
+
+
+
+set_state(win, loss, draw, rock, paper, scissors)
+points(rock, score, score_bank[0])
+points(paper, score, score_bank[1])
+points(scissors, score, score_bank[2])
+
 
 ##for entry in games:
 ##
@@ -99,3 +123,4 @@ print(len(rock[2]))
 print(len(paper[0]))
 print(len(scissors))
 print(score)
+print(score_bank)
