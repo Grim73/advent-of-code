@@ -102,7 +102,7 @@ set_state(win, loss, winner, lose, draw)
 ## def scoring(throw, points):
 
 ##["B X", "C Y",  "A Z"]
-print(len(win))
+print(len(winner))
 print(len(lose[0]))
 print(len(draw))
 print(score)
