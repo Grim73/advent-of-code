@@ -6,77 +6,60 @@ games = [entry.strip() for entry in lines]
 win = ["C X", "A Y", "B Z"]
 loss = ["B X", "C Y",  "A Z"]
 shape = ["X", "Y", "C"]
-rock = [[],[],[]]
-paper = [[],[],[]]
-scissors = [[],[],[]]
+winner = []
+lose = []
 draw = []
 
 score_bank = [[], [], []]
 score = 0
 
+extraction = []
 
-
-def set_state(state1, state2, state3, dest1, dest2, dest3):
+def set_state(state1, state2, dest1, dest2, dest3):
 
     for entry in games:
 
         if entry == state1[0]:
-            dest1[0].append(entry)
+            dest1.append(entry)
 
         elif entry == state1[1]:
-            dest2[0].append(entry)
+            dest2.append(entry)
 
         elif entry == state1[2]:
-            dest3[0].append(entry)
+            dest3.append(entry)
 
         if entry == state2[0]:
-            dest1[1].append(entry)
+            dest1.append(entry)
 
         elif entry == state2[1]:
-            dest2[1].append(entry)
+            dest2.append(entry)
 
         elif entry == state2[2]:
-            dest3[1].append(entry)
+            dest3.append(entry)
         else:
-            state3.append(entry)
-
-    for strip in state3:
-        ending = strip[-1]
-
-        if ending == "X":
-            dest1[2].append(ending)
-
-        elif ending == "Y":
-            dest2[2].append(ending)
-
-        else:
-            dest3[2].append(ending)
-
-
-
-def points(shape, total, bank):
-    for entry in shape[0]:
-        total += 6
-
-    bank.append(total)
-
-    total = 0
-
-    for entry in shape[2]:
-        total += 3
-
-    bank.append(total)
-
-    total = 0
+            dest3.append(entry)
 
 
 
 
-set_state(win, loss, draw, rock, paper, scissors)
-points(rock, score, score_bank[0])
-points(paper, score, score_bank[1])
-points(scissors, score, score_bank[2])
 
+##    for strip in state3:
+##        ending = strip[-1]
+##
+##        if ending == "X":
+##            dest1.append(ending)
+##
+##        elif ending == "Y":
+##            dest2.append(ending)
+##
+##        else:
+##            dest3.append(ending)
+##
+## Step 2 - X == draw, Y == Win, Z == Loss
+
+
+
+set_state(win, loss, winner, lose, draw)
 
 ##for entry in games:
 ##
@@ -119,8 +102,8 @@ points(scissors, score, score_bank[2])
 ## def scoring(throw, points):
 
 ##["B X", "C Y",  "A Z"]
-print(len(rock[2]))
-print(len(paper[0]))
-print(len(scissors))
+print(len(win))
+print(len(lose[0]))
+print(len(draw))
 print(score)
 print(score_bank)
