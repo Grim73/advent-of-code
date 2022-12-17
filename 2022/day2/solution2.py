@@ -6,6 +6,7 @@ games = [entry.strip() for entry in lines]
 win = ["C X", "A Y", "B Z"]
 loss = ["B X", "C Y",  "A Z"]
 shape = ["X", "Y", "C"]
+states = [[], [], []]
 winner = []
 lose = []
 draw = []
@@ -15,6 +16,8 @@ score = 0
 
 extraction = []
 
+## This function runs the input list and sorts it into its defined state
+## 
 def set_state(state1, state2, dest1, dest2, dest3):
 
     for entry in games:
@@ -23,21 +26,25 @@ def set_state(state1, state2, dest1, dest2, dest3):
             dest1.append(entry)
 
         elif entry == state1[1]:
-            dest2.append(entry)
+            dest1.append(entry)
 
         elif entry == state1[2]:
-            dest3.append(entry)
+            dest1.append(entry)
 
         if entry == state2[0]:
-            dest1.append(entry)
+            dest2.append(entry)
 
         elif entry == state2[1]:
             dest2.append(entry)
 
         elif entry == state2[2]:
-            dest3.append(entry)
+            dest2.append(entry)
         else:
             dest3.append(entry)
+
+
+## Set score of each win/loss/draw based on shape score
+## def set_score (state1, state2, state3, shape, points):
 
 
 
@@ -103,7 +110,7 @@ set_state(win, loss, winner, lose, draw)
 
 ##["B X", "C Y",  "A Z"]
 print(len(winner))
-print(len(lose[0]))
+print(len(lose))
 print(len(draw))
 print(score)
-print(score_bank)
+print(states)

@@ -21,21 +21,22 @@ elf_sums.append(current_sum)
 print(max(elf_sums))
 
 ## Part 2
-
+## Creating a list to hold the top three amounts
 top_total = []
 count = 0
+total = 0
 
 
 
 while count <=2:
-    ## 
+    ## Append the largest amount in the first list into the new list
+    ## then delete that element
     top_total.append(max(elf_sums))
 
     elf_sums.remove(max(elf_sums))
     count += 1
 
-total = 0
-
+## Add all numberd in list to `total`
 for grand_total in top_total:
     total += grand_total
 
