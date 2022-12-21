@@ -6,7 +6,6 @@ def getToday():
     token = input("What is the name of the file holding your session token: ")
     f = open(token,"r")
     cookie  = f.readline()
-    
     dest = input("What is the destiniation file name: ")
     file = open(dest, "w")
 
@@ -16,4 +15,3 @@ def getToday():
     os.system(f'curl -o input.txt "{url}" --cookie {cookie}')
 
 getToday()
- 
